@@ -23,14 +23,16 @@ function WebSocketStream(target, protocols) {
     stream = proxy
   } else {
     stream = duplexify.obj()
-    socket.addEventListener("open", onready)
+    socket.onopen = onready
   }
 
   stream.socket = socket
 
-  socket.addEventListener("close", onclose)
-  socket.addEventListener("error", onerror)
-  socket.addEventListener("message", onmessage)
+  // Because WebSocket polyfill in react native does not implement
+  // EventTarget interface(https://github.com/facebook/react-native/issues/2583)
+  socket.onclose = onclose
+  socket.onerror = onerror
+  socket.onmessage = onmessage
 
   proxy.on('close', destroy)
 

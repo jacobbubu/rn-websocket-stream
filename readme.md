@@ -1,5 +1,27 @@
 # websocket-stream
 
+## Forker notes
+
+I(jacobbubu) made this fork beacuse WebSocket polyfill in react native does not implement EventTarget interface(https://github.com/facebook/react-native/issues/2583).
+
+I've just changed 4 lines in [stream.js](https://github.com/jacobbubu/rn-websocket-stream/blob/master/stream.js#L26-L35) to
+
+```
+  if (socket.readyState === 1) {
+    stream = proxy
+  } else {
+    stream = duplexify.obj()
+    // 1 changed here
+    socket.onopen = onready
+  }
+
+  // changed 3 lines
+  socket.onclose = onclose
+  socket.onerror = onerror
+  socket.onmessage = onmessage
+```
+
+
 [![NPM](https://nodei.co/npm/websocket-stream.png?global=true)](https://nodei.co/npm/websocket-stream/)
 
 Use HTML5 [websockets](https://developer.mozilla.org/en-US/docs/WebSockets) using the Node Streams API.

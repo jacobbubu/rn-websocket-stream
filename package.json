@@ -1,27 +1,24 @@
 {
-  "name": "websocket-stream",
-  "version": "2.0.2",
+  "name": "rn-websocket-stream",
+  "version": "2.0.3",
   "license": "BSD-2-Clause",
-  "description": "Use websockets with the node streams API. Works in browser and node",
+  "description": "Use websockets with the node streams API. Works in react-native, browser and node",
   "scripts": {
     "test": "node test.js",
     "start": "beefy test-client.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/maxogden/websocket-stream.git"
+    "url": "git+ssh://git@github.com:jacobbubu/rn-websocket-stream.git"
   },
   "keywords": [
     "websocket",
     "websockets",
     "stream",
     "streams",
-    "realtime"
+    "realtime",
+    "react-native"
   ],
-  "_npmUser": {
-    "name": "maxogden",
-    "email": "max@maxogden.com"
-  },
   "dependencies": {
     "duplexify": "^3.2.0",
     "inherits": "^2.0.1",
@@ -41,9 +38,9 @@
     "./index.js": "./stream.js"
   },
   "bugs": {
-    "url": "https://github.com/maxogden/websocket-stream/issues"
+    "url": "https://github.com/jacobbubu/rn-websocket-stream/issues"
   },
-  "homepage": "https://github.com/maxogden/websocket-stream#readme",
+  "homepage": "https://github.com/jacobbubu/rn-websocket-stream#readme",
   "main": "index.js",
   "author": ""
 }
